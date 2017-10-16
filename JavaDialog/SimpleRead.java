@@ -24,7 +24,8 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
         try {
         	//The communication ends after 20s
             Thread.sleep(3000);
-            run();
+            closePort();
+            //run();
         } catch (InterruptedException e) {System.out.println(e);}
     }
 
@@ -41,14 +42,14 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
         case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
             break;
         case SerialPortEvent.DATA_AVAILABLE:
-            byte[] readBuffer = new byte[20];
+            byte[] readBuffer = new byte[24];
 
             try {
                 while (inputStream.available() > 0) {
                     int numBytes = inputStream.read(readBuffer);
                 }
                 setReceivedData(new String(readBuffer));
-                System.out.println(receivedData);
+                //System.out.println(receivedData);
             } catch (IOException e) {System.out.println(e);}
             break;
         }

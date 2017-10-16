@@ -103,7 +103,7 @@ public class SimpleWrite{
 		setResponse(readingThread.getReceivedData());
 		readingThread.setReceivedData("noData");
 		System.out.println("-----Response Received By The Arduino!----");
-		System.out.println(response);
+		//System.out.println(response);
     }
     
     public static void setReadingThread(SimpleRead readingThread) {

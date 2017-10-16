@@ -33,28 +33,29 @@ void initCaptors()
 
 int * getDistances()
 {
-  int Distances[5];
+  static int Distances[5];
   for (int i = 0; i < 5; i++) {
     digitalWrite(TrigArray[i], HIGH);
     delayMicroseconds(10);
     digitalWrite(TrigArray[i], LOW);
     lecture_echo = pulseIn(EchoArray[i], HIGH);
     Distances[i] = lecture_echo / 58;
-    delay(500);
+    delay(60);
   }
   return Distances;
 }
 
 int * getDistance_1(){
-  int Distances[5];
+  static int Distances[5];
   digitalWrite(TrigArray[0], HIGH);
     delayMicroseconds(10);
     digitalWrite(TrigArray[0], LOW);
     lecture_echo = pulseIn(EchoArray[0], HIGH);
-    Distances[0] = lecture_echo / 58;
+    Distances[0] = lecture_echo/58;
     delay(60);
     for (int i = 1; i < 5; i++) {
       Distances[i] = 0;
     }
+    return Distances;
 }
 

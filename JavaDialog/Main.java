@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		//Initiate a unique reading thread that will be executed as a background process

@@ -32,21 +32,20 @@ void loop() {
       receivedQuerry[i] = XBee.read();
     }
     Serial.println(receivedQuerry);
-    Serial.println(strcmp(CAPTORS, receivedQuerry));
     //
     if (strcmp(CAPTORS, receivedQuerry) == 0) {
+      delay(100);
       int * Distances;
-      Distances = getDistance_1();
-      char buf[29];
+      Distances = getDistances();
+      char buf[24];
       sprintf(buf, "%04i-%04i-%04i-%04i-%04i\0", Distances[0], Distances[1], Distances[2], Distances[3], Distances[4]);
       Serial.println(buf);
       XBee.write(buf);
     }
   }
-  int * Distances;
-  Distances = getDistances();
-  char buf[29];
-  Serial.println(Distances[0]);
-  sprintf(buf, "%03i-%03i-%03i-%03i-%03i\0", Distances[0], Distances[1], Distances[2], Distances[3], Distances[4]);
-  Serial.println(buf);
+//  int *Distances;
+//  Distances = getDistances();
+//  char buf[29];
+//  sprintf(buf, "%04i-%04i-%04i-%04i-%04i\0", Distances[0], Distances[1], Distances[2], Distances[3], Distances[4]);
+//  Serial.println(buf);
 }
