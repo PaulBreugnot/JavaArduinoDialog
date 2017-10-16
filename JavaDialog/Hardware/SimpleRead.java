@@ -1,3 +1,4 @@
+package Hardware;
 
 import java.io.*;
 import java.util.*;
@@ -23,9 +24,8 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
     public void run() {
         try {
         	//The communication ends after 20s
-            Thread.sleep(3000);
-            closePort();
-            //run();
+            Thread.sleep(30000);
+            run();
         } catch (InterruptedException e) {System.out.println(e);}
     }
 
